@@ -3,7 +3,8 @@
   "type": "module",
   "packageManager": "yarn@4.16.0",
   "scripts": {
-    "dev:server": "tsx src/server/index.ts"
+    "dev:server": "tsx src/server/index.ts",
+    "build:server": "tsc --build"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
