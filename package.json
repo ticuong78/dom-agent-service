@@ -1,22 +1,19 @@
 {
   "name": "dom-agent-service",
-  "type": "module",
   "packageManager": "yarn@4.16.0",
-  "main": "./dist/src/server/index.js",
+  "private": true,
   "scripts": {
-    "dev:server": "tsx src/server/index.ts",
-    "build": "tsc",
-    "start": "node ./dist/src/server/index.js"
+    "add:server": "yarn workspace @dom-agent-service/server add",
+    "add:wind-shield": "yarn workspace @dom-agent-service/wind-shield add",
+    "remove:server": "yarn workspace @dom-agent-service/server remove",
+    "remove:wind-shield": "yarn workspace @dom-agent-service/wind-shield remove",
+    "dev:server": "yarn workspace @dom-agent-service/server run dev",
+    "dev:wind-shield": "yarn workspace @dom-agent-service/wind-shield run dev"
   },
+  "workspaces": [
+    "packages/**/*"
+  ],
   "devDependencies": {
-    "@types/express": "^5.0.6",
-    "@types/node": "^25.9.3",
-    "tsx": "^4.19.2",
     "typescript": "^6.0.3"
-  },
-  "dependencies": {
-    "@ticuong78/dom-agent": "2.0.0",
-    "express": "^5.2.1",
-    "vite": "^8.0.16"
   }
 }
