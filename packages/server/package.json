@@ -2,6 +2,7 @@
   "name": "@dom-agent-service/server",
   "type": "module",
   "private": true,
+  "version": "0.0.0",
   "scripts": {
     "dev": "tsx src/index.ts"
   },
