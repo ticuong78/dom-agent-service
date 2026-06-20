@@ -1,6 +1,7 @@
 {
   "name": "@dom-agent-service/wind-shield",
   "private": true,
+  "packageManager": "yarn@4.16.0",
   "type": "module",
   "version": "0.0.0",
   "scripts": {

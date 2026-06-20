@@ -1,6 +1,7 @@
 {
   "name": "@dom-agent-service/server",
   "type": "module",
+  "packageManager": "yarn@4.16.0",
   "private": true,
   "version": "0.0.0",
   "scripts": {
