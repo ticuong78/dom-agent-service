@@ -1,8 +1,63 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans:
+    "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  /* ===== Teal scale ===== */
+  /* Hue 195°, perceptually uniform via OKLCH. Chroma peaks at step 9. */
+  /* Overrides Tailwind's default teal — your brand teal is the only teal. */
+  --color-teal-1: oklch(0.99 0.004 195); /* #F9FDFC  app background          */
+  --color-teal-2: oklch(0.97 0.012 195); /* #ECF8F7  subtle background       */
+  --color-teal-3: oklch(0.94 0.025 195); /* #D9F1F0  UI element bg           */
+  --color-teal-4: oklch(0.91 0.035 195); /* #C8E9E8  hovered UI bg           */
+  --color-teal-5: oklch(0.87 0.045 195); /* #B3DEDD  active / pressed UI     */
+  --color-teal-6: oklch(0.83 0.055 195); /* #9ED3D2  subtle border           */
+  --color-teal-7: oklch(0.78 0.065 195); /* #85C5C4  UI border               */
+  --color-teal-8: oklch(0.71 0.08 195); /* #60B1B1  hovered border          */
+  --color-teal-9: oklch(0.57 0.097 195); /* #028989  solid (primary)         */
+  --color-teal-10: oklch(0.51 0.095 195); /* #007677  hovered solid           */
+  --color-teal-11: oklch(0.46 0.085 195); /* #006667  low-contrast text       */
+  --color-teal-12: oklch(0.27 0.055 195); /* #002E2F  high-contrast text      */
+
+  /* ===== Semantic aliases ===== */
+  /* Reference these in components, not the raw scale steps. */
+  /* When you swap palettes later, only this block changes.  */
+  --color-accent-bg: var(--color-teal-1);
+  --color-accent-bg-subtle: var(--color-teal-2);
+  --color-accent-surface: var(--color-teal-3);
+  --color-accent-surface-hover: var(--color-teal-4);
+  --color-accent-surface-active: var(--color-teal-5);
+  --color-accent-border-subtle: var(--color-teal-6);
+  --color-accent-border: var(--color-teal-7);
+  --color-accent-border-hover: var(--color-teal-8);
+  --color-accent-solid: var(--color-teal-9);
+  --color-accent-solid-hover: var(--color-teal-10);
+  --color-accent-text: var(--color-teal-11);
+  --color-accent-text-contrast: var(--color-teal-12);
+}
+
+/* ===== Dark mode overrides ===== */
+/* Inverted lightness curve. Step 9 lands BRIGHTER than in light mode (L=0.68 */
+/* vs L=0.57) so the solid still pops against the dark surface.               */
+/* Swap `@media (prefers-color-scheme: dark)` for `.dark` if you want a       */
+/* manual theme toggle instead of following the OS.                           */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-teal-1: oklch(0.18 0.012 195); /* #0B1313 */
+    --color-teal-2: oklch(0.22 0.018 195); /* #101D1D */
+    --color-teal-3: oklch(0.26 0.028 195); /* #122828 */
+    --color-teal-4: oklch(0.3 0.038 195); /* #133434 */
+    --color-teal-5: oklch(0.34 0.048 195); /* #134040 */
+    --color-teal-6: oklch(0.39 0.058 195); /* #144F4F */
+    --color-teal-7: oklch(0.45 0.07 195); /* #156161 */
+    --color-teal-8: oklch(0.54 0.09 195); /* #0B7F7F */
+    --color-teal-9: oklch(0.68 0.115 195); /* #09AEAE */
+    --color-teal-10: oklch(0.74 0.11 195); /* #3FC0C0 */
+    --color-teal-11: oklch(0.82 0.09 195); /* #78D7D6 */
+    --color-teal-12: oklch(0.94 0.04 195); /* #CDF4F3 */
+  }
 }
 
 html,

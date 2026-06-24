@@ -1,11 +1,31 @@
+// hosts
 import express from "express";
 import type { Application, Request, Response } from "express";
-import { diffingService } from "./service/diffing";
+
+import * as fs from "fs";
+
+// presentation
+import * as SwaggerUI from "swagger-ui-express";
+
+// built-in modules
+import { diffingService } from "@/service/diffing.js";
+import swaggerSpec from "@/routes/swagger.js";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const app: Application = express();
-const PORT = process.env.APP_PORT || 3000;
+const PORT = process.env.APP_PORT || 3715;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use(express.json()); // middleware to parse JSON
+app.use(express.static("public"));
+app.use("/api-docs", SwaggerUI.serve, SwaggerUI.setup(swaggerSpec));
+
+app.get("/", (req, res) => {
+  res.redirect("/api-docs");
+});
 
 app.post("/api/diff", (req: Request, res: Response) => {
   const body = req.body;

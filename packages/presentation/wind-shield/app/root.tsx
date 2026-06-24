@@ -7,11 +7,13 @@ import {
   ScrollRestoration,
 } from "react-router";
 
+// @ts-ignore
 import type { Route } from "./+types/root";
 import "./app.css";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
+  { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
   {
     rel: "preconnect",
     href: "https://fonts.gstatic.com",
