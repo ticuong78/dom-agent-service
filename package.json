@@ -8,7 +8,9 @@
     "remove:server": "yarn workspace @dom-agent-service/server remove",
     "remove:wind-shield": "yarn workspace @dom-agent-service/wind-shield remove",
     "dev:server": "yarn workspace @dom-agent-service/server run dev",
-    "dev:wind-shield": "yarn workspace @dom-agent-service/wind-shield run dev"
+    "dev:wind-shield": "yarn workspace @dom-agent-service/wind-shield run dev",
+    "build:server": "yarn workspace @dom-agent-service/server run build",
+    "build:wind-shield": "yarn workspace @dom-agent-service/wind-shield run build"
   },
   "workspaces": [
     "packages/**/*"
