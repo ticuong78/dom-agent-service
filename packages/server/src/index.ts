@@ -8,8 +8,8 @@ import * as fs from "fs";
 import * as SwaggerUI from "swagger-ui-express";
 
 // built-in modules
-import { diffingService } from "@/service/diffing";
-import swaggerSpec from "@/routes/swagger";
+import { diffingService } from "@/service/diffing.js";
+import swaggerSpec from "@/routes/swagger.js";
 import path from "path";
 import { fileURLToPath } from "url";
 
