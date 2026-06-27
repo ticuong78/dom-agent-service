@@ -388,6 +388,7 @@ __metadata:
     "@supabase/ssr": "npm:^0.12.0"
     "@supabase/supabase-js": "npm:^2.108.2"
     "@tailwindcss/vite": "npm:^4.2.2"
+    "@ticuong78/dom-agent": "npm:^2.0.0"
     "@types/node": "npm:^22"
     "@types/react": "npm:^19.2.14"
     "@types/react-dom": "npm:^19.2.3"
