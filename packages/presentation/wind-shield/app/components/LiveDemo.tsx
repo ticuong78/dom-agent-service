@@ -144,7 +144,7 @@ export function LiveDemo() {
   const handleRunDiff = () => {
     setIsLoading(true);
 
-    const diffs = getDiffReport("mutation", beforeHtml, afterHtml);
+    const diffs = getDiffReport("composite", beforeHtml, afterHtml);
 
     setResult({
       diffs,
