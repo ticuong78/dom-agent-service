@@ -1,6 +1,7 @@
 import type {
   ContextNodeSnapshot,
   DiffPointSnapshot,
+  DiffSummarySnapshot,
 } from "@ticuong78/dom-agent";
 
 import {
@@ -12,27 +13,23 @@ import {
   getNodeLabel,
   type AttributeChange,
 } from "./diffReport.visual";
-import type { DiffSummary } from "~/utils/diff";
 
-export type DiffReportProps = {
-  diffs: DiffPointSnapshot[];
-  summary?: DiffSummary;
-};
+export type DiffReportProps = DiffSummarySnapshot;
 
-export function DiffReport({ diffs, summary }: DiffReportProps) {
+export function DiffReport({ diffPoints, ...summary }: DiffReportProps) {
   return (
     <div className="rounded-xl border border-slate-700 bg-[#1e293b] overflow-hidden shadow-2xl">
-      <DiffReportHeader diffs={diffs} summary={summary} />
+      <DiffReportHeader diffs={diffPoints} summary={summary} />
 
       <div className="p-6 flex flex-col gap-4">
-        {diffs.length === 0 ? (
+        {diffPoints.length === 0 ? (
           <div className="rounded-lg border border-slate-700 bg-slate-900/50 p-6 text-center">
             <p className="font-mono text-sm text-slate-400">
               No structural changes detected.
             </p>
           </div>
         ) : (
-          diffs.map((diff, index) => (
+          diffPoints.map((diff, index) => (
             <DiffCard key={`${diff.type}-${index}`} diff={diff} />
           ))
         )}
@@ -46,7 +43,7 @@ function DiffReportHeader({
   summary,
 }: {
   diffs: DiffPointSnapshot[];
-  summary?: DiffSummary;
+  summary?: Omit<DiffSummarySnapshot, "diffPoints">;
 }) {
   const fallback = getFallbackSummary(diffs);
 

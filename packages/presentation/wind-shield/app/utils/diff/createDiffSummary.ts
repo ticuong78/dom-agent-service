@@ -1,10 +1,19 @@
 import type { DiffPointSnapshot, StandardDiffType } from "@ticuong78/dom-agent";
-import type { DiffSummary } from "./diffSummary";
+import type { DiffSummarySnapshot } from "@ticuong78/dom-agent";
 
-export function createDiffSummary(diffs: DiffPointSnapshot[]): DiffSummary {
-  const summary: DiffSummary = {
-    total: diffs.length,
+export function createDiffSummary(
+  diffs: DiffPointSnapshot[],
+): DiffSummarySnapshot {
+  // createdAt: string;
+  // label: string | undefined;
+  // totalDiffs: number;
+  // diffPoints: DiffPointSnapshot[];
 
+  const summary: DiffSummarySnapshot = {
+    label: undefined,
+    createdAt: Date.now().toString(),
+    totalDiffs: diffs.length,
+    diffPoints: diffs,
     added: 0,
     removed: 0,
     modified: 0,

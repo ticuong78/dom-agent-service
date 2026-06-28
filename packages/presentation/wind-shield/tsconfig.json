@@ -14,7 +14,9 @@
     "jsx": "react-jsx",
     "rootDirs": [".", "./.react-router/types"],
     "paths": {
-      "~/*": ["./app/*"]
+      "~/*": ["./app/*"],
+      "node_modules/*": ["./node_modules/*"],
+      "@ticuong78/dom-agent": ["./app/utils/override/dom-agent.ts"]
     },
     "esModuleInterop": true,
     "verbatimModuleSyntax": true,
@@ -22,6 +24,6 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
+    "forceConsistentCasingInFileNames": true
   }
 }

@@ -143,12 +143,10 @@ export function LiveDemo() {
   const handleRunDiff = () => {
     setIsLoading(true);
 
-    const diffs = getDiffReport("composite", beforeHtml, afterHtml);
+    const diffs = getDiffReport("composition", beforeHtml, afterHtml);
+    const diffsSummary = createDiffSummary(diffs);
 
-    setResult({
-      diffs,
-      summary: createDiffSummary(diffs),
-    });
+    setResult(diffsSummary);
 
     setIsLoading(false);
   };
@@ -237,7 +235,12 @@ export function LiveDemo() {
           </button>
         </div>
 
-        {result && <DiffReport diffs={result.diffs} summary={result.summary} />}
+        {result && (
+          <DiffReport
+            diffPoints={result.diffPoints}
+            {...(({ diffPoints, ...rest }) => rest)(result)}
+          />
+        )}
       </div>
     </section>
   );

@@ -388,7 +388,7 @@ __metadata:
     "@supabase/ssr": "npm:^0.12.0"
     "@supabase/supabase-js": "npm:^2.108.2"
     "@tailwindcss/vite": "npm:^4.2.2"
-    "@ticuong78/dom-agent": "npm:^3.0.0"
+    "@ticuong78/dom-agent": "npm:^3.0.1"
     "@types/node": "npm:^22"
     "@types/react": "npm:^19.2.14"
     "@types/react-dom": "npm:^19.2.3"
@@ -1602,12 +1602,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ticuong78/dom-agent@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@ticuong78/dom-agent@npm:3.0.0"
+"@ticuong78/dom-agent@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "@ticuong78/dom-agent@npm:3.0.1"
   dependencies:
     cheerio: "npm:^1.2.0"
-  checksum: 10c0/26e2ae6d906f04eaea1d4f8fbfc5ab985dcc302a0fe81ce5245e1746c00adf34d3d2e66b396c145b59653d32bf9ffe2d6f229fe045435ce7bb1fa1a8097c195c
+  checksum: 10c0/85328c9b41d65b5f6286cd5245fab2d4b5383e4fee29687eed7355c697b117b7fba812309fb20873987cb7fef4e50bcc90ea431776b7ce0c7de952e99f76d798
   languageName: node
   linkType: hard
 
