@@ -1,4 +1,3 @@
-import type { DiffPointSnapshot } from "@ticuong78/dom-agent";
 import { useState } from "react";
 import { getDiffReport } from "~/utils/dagent.setup";
 import { DiffReport } from "./diff-report";
