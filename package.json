@@ -1,21 +1,28 @@
 {
-  "name": "dom-agent-service",
-  "packageManager": "yarn@4.16.0",
+  "name": "@dom-agent-service/server",
+  "type": "module",
+  "packageManager": "yarn@4.17.0+sha512.c2957de2f9025ab14d63b24d0d8be1f1655810e22c341042c27f7ecd017b180ec12db73d69ac366d71b304ef9f069349ce462de96f04f8f1da317f4f762c95ae",
   "private": true,
+  "version": "0.0.0",
   "scripts": {
-    "add:server": "yarn workspace @dom-agent-service/server add",
-    "add:wind-shield": "yarn workspace @dom-agent-service/wind-shield add",
-    "remove:server": "yarn workspace @dom-agent-service/server remove",
-    "remove:wind-shield": "yarn workspace @dom-agent-service/wind-shield remove",
-    "dev:server": "yarn workspace @dom-agent-service/server run dev",
-    "dev:wind-shield": "yarn workspace @dom-agent-service/wind-shield run dev",
-    "build:server": "yarn workspace @dom-agent-service/server run build",
-    "build:wind-shield": "yarn workspace @dom-agent-service/wind-shield run build"
+    "build": "tsc && tsc-alias",
+    "dev": "tsx watch src/index.ts",
+    "start": "node ./dist/index.js"
   },
-  "workspaces": [
-    "packages/**/*"
-  ],
+  "dependencies": {
+    "@ticuong78/dom-agent": "^2.0.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "swagger-jsdoc": "^6.3.0",
+    "swagger-ui-express": "^5.0.1"
+  },
   "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.9.3",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.8",
+    "tsc-alias": "^1.8.17",
+    "tsx": "^4.22.4",
     "typescript": "^6.0.3"
   }
 }

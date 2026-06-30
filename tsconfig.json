@@ -44,8 +44,7 @@
     "skipLibCheck": true,
     "strict": true,
     "paths": {
-      "@/routes/*": ["./src/routes/*"],
-      "@/service/*": ["./src/service/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["./src"]
