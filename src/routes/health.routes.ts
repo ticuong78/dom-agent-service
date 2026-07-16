@@ -6,7 +6,7 @@ const healthRouter = express.Router();
 
 healthRouter.get("/alive", (req: Request, res: Response) => {
   if (countries.length !== 0) console.log("[health] Countries still persists.");
-  else console.log("[health] needs fetch.");
+  else console.log("[health] Countries data needs fetch.");
   res.status(200).send("Alive");
 });
 
