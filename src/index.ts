@@ -2,23 +2,20 @@
 import express from "express";
 import type { Application, Request, Response } from "express";
 
-import * as fs from "fs";
-
 // presentation
 import * as SwaggerUI from "swagger-ui-express";
 
 // built-in modules
-import { diffingService } from "@/service/diffing.js";
-import swaggerSpec from "@/routes/swagger.js";
-import path from "path";
-import { fileURLToPath } from "url";
+import swaggerSpec from "@/config/swagger.config.js";
+
+import { injectEnvs } from "./middlewares/env.middlewares.js";
+import countriesRouter from "./routes/countries.routes.js";
+import statesRouter from "./routes/states.routes.js";
 
 const app: Application = express();
 const PORT = process.env.APP_PORT || 3715;
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
+app.use(injectEnvs); // injtecEnvs
 app.use(express.json()); // middleware to parse JSON
 app.use(express.static("public"));
 app.use("/api-docs", SwaggerUI.serve, SwaggerUI.setup(swaggerSpec));
@@ -27,16 +24,8 @@ app.get("/", (req, res) => {
   res.redirect("/api-docs");
 });
 
-app.post("/api/diff", (req: Request, res: Response) => {
-  const body = req.body;
-
-  const compositeReport = diffingService(body.first, body.second);
-
-  res.json({
-    success: true,
-    message: compositeReport.serialize(),
-  });
-});
+app.use("/api/location", countriesRouter);
+app.use("/api/location", statesRouter); // not enough credit to use it the moment
 
 const server = app.listen(PORT, () => {
   console.log(`App started listenning on port: ${PORT}`);
