@@ -11,6 +11,7 @@ import swaggerSpec from "@/config/swagger.config.js";
 import { injectEnvs } from "./middlewares/env.middlewares.js";
 import countriesRouter from "./routes/countries.routes.js";
 import statesRouter from "./routes/states.routes.js";
+import healthRouter from "./routes/health.routes.js";
 
 const app: Application = express();
 const PORT = process.env.APP_PORT || 3715;
@@ -26,6 +27,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/location", countriesRouter);
 app.use("/api/location", statesRouter); // not enough credit to use it the moment
+app.use("/health", healthRouter);
 
 const server = app.listen(PORT, () => {
   console.log(`App started listenning on port: ${PORT}`);
