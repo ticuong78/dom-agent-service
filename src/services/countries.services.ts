@@ -1,8 +1,4 @@
 import {
-  countries,
-  setCountriesInstance,
-} from "@/instances/countries.instance.js";
-import {
   countryListSchema,
   type CountryList,
 } from "@/schemas/countries.schemas.js";
@@ -12,17 +8,12 @@ export async function getAllCountries(vendor: {
   url: string;
   token: string;
 }): Promise<CountryList | null> {
+  let countries: CountryList = [];
+
   if (!vendor.url || !vendor.token) {
     throw new Error(
       "Provided Country State City credentials are invalid. Please check again.",
     );
-  }
-
-  if (countries.length !== 0) {
-    console.info(
-      "[services-getCountries] Found countries in cache. Returning ...",
-    );
-    return countries;
   }
 
   try {
@@ -35,7 +26,7 @@ export async function getAllCountries(vendor: {
       },
     });
 
-    setCountriesInstance(countryListSchema.parse(await response.data));
+    countries = countryListSchema.parse(await response.data);
 
     return countries;
   } catch (err) {

@@ -5,8 +5,8 @@ import type { Request, Response } from "express";
 const countriesRouter = express.Router();
 
 countriesRouter.get("/countries", async (req: Request, res: Response) => {
-  const contryStateCityUrl = req.env.COUNTRY_STATE_CITY_URL;
-  const contryStateCityToken = req.env.COUNTRY_STATE_CITY_TOKEN;
+  const contryStateCityUrl = req.envs.COUNTRY_STATE_CITY_URL;
+  const contryStateCityToken = req.envs.COUNTRY_STATE_CITY_TOKEN;
 
   try {
     const countries = await getAllCountries({

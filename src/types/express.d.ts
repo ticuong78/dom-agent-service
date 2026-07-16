@@ -1,6 +1,11 @@
+import type { CountryModel } from "@/models/countries.model.ts";
+
 declare module "express" {
   interface Request {
-    env?: Env;
+    envs?: Env;
+    instances?: {
+      countriesModel?: CountryModel
+    } = {};
   }
 }
 
