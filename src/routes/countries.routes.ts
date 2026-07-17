@@ -5,11 +5,19 @@ import type { Request, Response } from "express";
 const countriesRouter = express.Router();
 
 countriesRouter.get("/countries", async (req: Request, res: Response) => {
+  const countriesModel = {
+    getCountryList: req.instances.countriesModel?.getCountryList,
+    setCountryList: req.instances.countriesModel?.setCountryList,
+  };
   const contryStateCityUrl = req.envs.COUNTRY_STATE_CITY_URL;
   const contryStateCityToken = req.envs.COUNTRY_STATE_CITY_TOKEN;
 
   try {
-    const countries = await getAllCountries({
+    let countries = countriesModel.getCountryList();
+
+    // if()
+
+    countries = await getAllCountries({
       url: contryStateCityUrl,
       token: contryStateCityToken,
     });

@@ -11,11 +11,13 @@ import swaggerSpec from "@/config/swagger.config.js";
 import { injectEnvs } from "./middlewares/envs.middlewares.js";
 import countriesRouter from "./routes/countries.routes.js";
 import healthRouter from "./routes/health.routes.js";
+import { injectInstances } from "./middlewares/instances.middlewares.js";
 
 const app: Application = express();
 const PORT = process.env.APP_PORT || 3715;
 
 app.use(injectEnvs); // injtecEnvs
+app.use(injectInstances);
 app.use(express.json()); // middleware to parse JSON
 app.use(express.static("public"));
 app.use("/api-docs", SwaggerUI.serve, SwaggerUI.setup(swaggerSpec));

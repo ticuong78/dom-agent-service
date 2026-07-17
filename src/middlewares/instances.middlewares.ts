@@ -1,14 +1,17 @@
 import { CountriesModel } from "@/models/countries.model.js";
 import type { Request, Response, NextFunction } from "express";
 
+const countries = new CountriesModel();
+
 export function injectInstances(
   req: Request,
   res: Response,
   next: NextFunction,
 ) {
-  const countries = new CountriesModel();
+  req.instances.countriesModel = {
+    getCountryList: countries.getCountryList,
+    setCountryList: countries.setCountryList,
+  };
 
-  if (!req.instances) req.instances = {};
-
-  req.instances.countriesModel = countries;
+  next();
 }

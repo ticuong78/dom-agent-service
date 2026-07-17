@@ -1,11 +1,14 @@
-import type { CountryModel } from "@/models/countries.model.ts";
+import "express-serve-static-core";
 
-declare module "express" {
+declare module "express-serve-static-core" {
   interface Request {
-    envs?: Env;
-    instances?: {
-      countriesModel?: CountryModel
-    } = {};
+    envs: Env;
+    instances: {
+      countriesModel: {
+        setCountryList: (countries: Country[]) => void;
+        getCountryList: () => Country[];
+      };
+    };
   }
 }
 
